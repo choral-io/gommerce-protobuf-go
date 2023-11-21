@@ -23,16 +23,9 @@ func FromSqlNullString(v sql.NullString) Gender {
 	return Gender_GENDER_UNSPECIFIED
 }
 
-func ToString(g Gender) string {
-	if v, ok := Gender_name[int32(g)]; ok {
-		return v[len(NAME_PREFIX):]
-	}
-	return UNSPECIFIED
-}
-
-func ToSqlNullString(g *Gender) sql.NullString {
-	if g != nil {
-		return sql.NullString{Valid: true, String: ToString(*g)}
+func ToSqlNullString(g Gender) sql.NullString {
+	if g.Number() > 0 {
+		return sql.NullString{Valid: true, String: g.String()[len(NAME_PREFIX):]}
 	}
 	return sql.NullString{Valid: false}
 }
