@@ -57,9 +57,27 @@ func (m *CreateTokenRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Realm
+	if utf8.RuneCountInString(m.GetRealm()) < 1 {
+		err := CreateTokenRequestValidationError{
+			field:  "Realm",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Provider
+	if utf8.RuneCountInString(m.GetProvider()) < 1 {
+		err := CreateTokenRequestValidationError{
+			field:  "Provider",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if all {
 		switch v := interface{}(m.GetUsername()).(type) {
