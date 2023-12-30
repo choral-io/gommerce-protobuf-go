@@ -251,37 +251,6 @@ func (m *User) validate(all bool) error {
 	// no validation rules for Attributes
 
 	if all {
-		switch v := interface{}(m.GetDisplayName()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, UserValidationError{
-					field:  "DisplayName",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, UserValidationError{
-					field:  "DisplayName",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetDisplayName()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return UserValidationError{
-				field:  "DisplayName",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	// no validation rules for Gender
-
-	if all {
 		switch v := interface{}(m.GetDescription()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -531,10 +500,25 @@ func (m *RegisterRequest) validate(all bool) error {
 
 	if wrapper := m.GetDisplayName(); wrapper != nil {
 
-		if l := utf8.RuneCountInString(wrapper.GetValue()); l < 5 || l > 120 {
+		if l := utf8.RuneCountInString(wrapper.GetValue()); l < 2 || l > 120 {
 			err := RegisterRequestValidationError{
 				field:  "DisplayName",
-				reason: "value length must be between 5 and 120 runes, inclusive",
+				reason: "value length must be between 2 and 120 runes, inclusive",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if wrapper := m.GetAvatarUrl(); wrapper != nil {
+
+		if l := utf8.RuneCountInString(wrapper.GetValue()); l < 0 || l > 2048 {
+			err := RegisterRequestValidationError{
+				field:  "AvatarUrl",
+				reason: "value length must be between 0 and 2048 runes, inclusive",
 			}
 			if !all {
 				return err
