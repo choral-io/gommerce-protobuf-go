@@ -6,7 +6,6 @@ import (
 
 const (
 	NAME_PREFIX = "GENDER_"
-	UNSPECIFIED = "UNSPECIFIED"
 )
 
 func FromString(v string) Gender {
