@@ -883,12 +883,6 @@ func (m *ListUsersResponse) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Page
-
-	// no validation rules for Size
-
-	// no validation rules for Total
-
 	for idx, item := range m.GetItems() {
 		_, _ = idx, item
 
@@ -922,6 +916,12 @@ func (m *ListUsersResponse) validate(all bool) error {
 		}
 
 	}
+
+	// no validation rules for Page
+
+	// no validation rules for Size
+
+	// no validation rules for Total
 
 	if len(errors) > 0 {
 		return ListUsersResponseMultiError(errors)

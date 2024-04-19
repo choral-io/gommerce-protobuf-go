@@ -702,27 +702,9 @@ func (m *GeneratePasswordRequest) validate(all bool) error {
 
 	var errors []error
 
-	if m.GetLength() <= 0 {
-		err := GeneratePasswordRequestValidationError{
-			field:  "Length",
-			reason: "value must be greater than 0",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Length
 
-	if utf8.RuneCountInString(m.GetSymbols()) < 1 {
-		err := GeneratePasswordRequestValidationError{
-			field:  "Symbols",
-			reason: "value length must be at least 1 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Symbols
 
 	if len(errors) > 0 {
 		return GeneratePasswordRequestMultiError(errors)
