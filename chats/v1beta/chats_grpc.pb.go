@@ -19,10 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ChatsService_ListSessions_FullMethodName = "/gommerce.chats.v1beta.ChatsService/ListSessions"
-	ChatsService_ReadSession_FullMethodName  = "/gommerce.chats.v1beta.ChatsService/ReadSession"
-	ChatsService_SendRecord_FullMethodName   = "/gommerce.chats.v1beta.ChatsService/SendRecord"
-	ChatsService_WatchRecords_FullMethodName = "/gommerce.chats.v1beta.ChatsService/WatchRecords"
+	ChatsService_ListSessions_FullMethodName    = "/gommerce.chats.v1beta.ChatsService/ListSessions"
+	ChatsService_DescribeSession_FullMethodName = "/gommerce.chats.v1beta.ChatsService/DescribeSession"
+	ChatsService_ReadSession_FullMethodName     = "/gommerce.chats.v1beta.ChatsService/ReadSession"
+	ChatsService_SendRecord_FullMethodName      = "/gommerce.chats.v1beta.ChatsService/SendRecord"
+	ChatsService_WatchRecords_FullMethodName    = "/gommerce.chats.v1beta.ChatsService/WatchRecords"
 )
 
 // ChatsServiceClient is the client API for ChatsService service.
@@ -30,6 +31,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ChatsServiceClient interface {
 	ListSessions(ctx context.Context, in *ListSessionsRequest, opts ...grpc.CallOption) (*ListSessionsResponse, error)
+	DescribeSession(ctx context.Context, in *DescribeSessionRequest, opts ...grpc.CallOption) (*DescribeSessionResponse, error)
 	ReadSession(ctx context.Context, in *ReadSessionRequest, opts ...grpc.CallOption) (*ReadSessionResponse, error)
 	SendRecord(ctx context.Context, in *SendRecordRequest, opts ...grpc.CallOption) (*SendRecordResponse, error)
 	WatchRecords(ctx context.Context, in *WatchRecordsRequest, opts ...grpc.CallOption) (ChatsService_WatchRecordsClient, error)
@@ -46,6 +48,15 @@ func NewChatsServiceClient(cc grpc.ClientConnInterface) ChatsServiceClient {
 func (c *chatsServiceClient) ListSessions(ctx context.Context, in *ListSessionsRequest, opts ...grpc.CallOption) (*ListSessionsResponse, error) {
 	out := new(ListSessionsResponse)
 	err := c.cc.Invoke(ctx, ChatsService_ListSessions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatsServiceClient) DescribeSession(ctx context.Context, in *DescribeSessionRequest, opts ...grpc.CallOption) (*DescribeSessionResponse, error) {
+	out := new(DescribeSessionResponse)
+	err := c.cc.Invoke(ctx, ChatsService_DescribeSession_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,6 +118,7 @@ func (x *chatsServiceWatchRecordsClient) Recv() (*WatchRecordsResponse, error) {
 // for forward compatibility
 type ChatsServiceServer interface {
 	ListSessions(context.Context, *ListSessionsRequest) (*ListSessionsResponse, error)
+	DescribeSession(context.Context, *DescribeSessionRequest) (*DescribeSessionResponse, error)
 	ReadSession(context.Context, *ReadSessionRequest) (*ReadSessionResponse, error)
 	SendRecord(context.Context, *SendRecordRequest) (*SendRecordResponse, error)
 	WatchRecords(*WatchRecordsRequest, ChatsService_WatchRecordsServer) error
@@ -119,6 +131,9 @@ type UnimplementedChatsServiceServer struct {
 
 func (UnimplementedChatsServiceServer) ListSessions(context.Context, *ListSessionsRequest) (*ListSessionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSessions not implemented")
+}
+func (UnimplementedChatsServiceServer) DescribeSession(context.Context, *DescribeSessionRequest) (*DescribeSessionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DescribeSession not implemented")
 }
 func (UnimplementedChatsServiceServer) ReadSession(context.Context, *ReadSessionRequest) (*ReadSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadSession not implemented")
@@ -156,6 +171,24 @@ func _ChatsService_ListSessions_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChatsServiceServer).ListSessions(ctx, req.(*ListSessionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChatsService_DescribeSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatsServiceServer).DescribeSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChatsService_DescribeSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatsServiceServer).DescribeSession(ctx, req.(*DescribeSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -227,6 +260,10 @@ var ChatsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListSessions",
 			Handler:    _ChatsService_ListSessions_Handler,
+		},
+		{
+			MethodName: "DescribeSession",
+			Handler:    _ChatsService_DescribeSession_Handler,
 		},
 		{
 			MethodName: "ReadSession",
