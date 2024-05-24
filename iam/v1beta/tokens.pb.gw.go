@@ -57,6 +57,32 @@ func local_request_TokensService_CreateToken_0(ctx context.Context, marshaler ru
 
 }
 
+func request_TokensService_RevokeToken_0(ctx context.Context, marshaler runtime.Marshaler, client TokensServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RevokeTokenRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.RevokeToken(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_TokensService_RevokeToken_0(ctx context.Context, marshaler runtime.Marshaler, server TokensServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RevokeTokenRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.RevokeToken(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_TokensService_RefreshToken_0(ctx context.Context, marshaler runtime.Marshaler, client TokensServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RefreshTokenRequest
 	var metadata runtime.ServerMetadata
@@ -111,6 +137,31 @@ func RegisterTokensServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 		}
 
 		forward_TokensService_CreateToken_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_TokensService_RevokeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.TokensService/RevokeToken", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.TokensService/RevokeToken"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_TokensService_RevokeToken_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_TokensService_RevokeToken_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -202,6 +253,28 @@ func RegisterTokensServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 
 	})
 
+	mux.Handle("POST", pattern_TokensService_RevokeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.TokensService/RevokeToken", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.TokensService/RevokeToken"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_TokensService_RevokeToken_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_TokensService_RevokeToken_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_TokensService_RefreshToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -230,11 +303,15 @@ func RegisterTokensServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 var (
 	pattern_TokensService_CreateToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.TokensService", "CreateToken"}, ""))
 
+	pattern_TokensService_RevokeToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.TokensService", "RevokeToken"}, ""))
+
 	pattern_TokensService_RefreshToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.TokensService", "RefreshToken"}, ""))
 )
 
 var (
 	forward_TokensService_CreateToken_0 = runtime.ForwardResponseMessage
+
+	forward_TokensService_RevokeToken_0 = runtime.ForwardResponseMessage
 
 	forward_TokensService_RefreshToken_0 = runtime.ForwardResponseMessage
 )

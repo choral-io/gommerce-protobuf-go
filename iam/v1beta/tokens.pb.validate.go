@@ -166,6 +166,35 @@ func (m *CreateTokenRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetSignature()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTokenRequestValidationError{
+					field:  "Signature",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTokenRequestValidationError{
+					field:  "Signature",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSignature()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTokenRequestValidationError{
+				field:  "Signature",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CreateTokenRequestMultiError(errors)
 	}
@@ -355,6 +384,212 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTokenResponseValidationError{}
+
+// Validate checks the field values on RevokeTokenRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *RevokeTokenRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on RevokeTokenRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// RevokeTokenRequestMultiError, or nil if none found.
+func (m *RevokeTokenRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *RevokeTokenRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for AccessToken
+
+	if len(errors) > 0 {
+		return RevokeTokenRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// RevokeTokenRequestMultiError is an error wrapping multiple validation errors
+// returned by RevokeTokenRequest.ValidateAll() if the designated constraints
+// aren't met.
+type RevokeTokenRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RevokeTokenRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RevokeTokenRequestMultiError) AllErrors() []error { return m }
+
+// RevokeTokenRequestValidationError is the validation error returned by
+// RevokeTokenRequest.Validate if the designated constraints aren't met.
+type RevokeTokenRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RevokeTokenRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RevokeTokenRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RevokeTokenRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RevokeTokenRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RevokeTokenRequestValidationError) ErrorName() string {
+	return "RevokeTokenRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RevokeTokenRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRevokeTokenRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RevokeTokenRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RevokeTokenRequestValidationError{}
+
+// Validate checks the field values on RevokeTokenResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *RevokeTokenResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on RevokeTokenResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// RevokeTokenResponseMultiError, or nil if none found.
+func (m *RevokeTokenResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *RevokeTokenResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return RevokeTokenResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// RevokeTokenResponseMultiError is an error wrapping multiple validation
+// errors returned by RevokeTokenResponse.ValidateAll() if the designated
+// constraints aren't met.
+type RevokeTokenResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RevokeTokenResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RevokeTokenResponseMultiError) AllErrors() []error { return m }
+
+// RevokeTokenResponseValidationError is the validation error returned by
+// RevokeTokenResponse.Validate if the designated constraints aren't met.
+type RevokeTokenResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RevokeTokenResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RevokeTokenResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RevokeTokenResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RevokeTokenResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RevokeTokenResponseValidationError) ErrorName() string {
+	return "RevokeTokenResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RevokeTokenResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRevokeTokenResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RevokeTokenResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RevokeTokenResponseValidationError{}
 
 // Validate checks the field values on RefreshTokenRequest with the rules
 // defined in the proto definition for this message. If any rules are

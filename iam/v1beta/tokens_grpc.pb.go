@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	TokensService_CreateToken_FullMethodName  = "/gommerce.iam.v1beta.TokensService/CreateToken"
+	TokensService_RevokeToken_FullMethodName  = "/gommerce.iam.v1beta.TokensService/RevokeToken"
 	TokensService_RefreshToken_FullMethodName = "/gommerce.iam.v1beta.TokensService/RefreshToken"
 )
 
@@ -28,6 +29,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TokensServiceClient interface {
 	CreateToken(ctx context.Context, in *CreateTokenRequest, opts ...grpc.CallOption) (*CreateTokenResponse, error)
+	RevokeToken(ctx context.Context, in *RevokeTokenRequest, opts ...grpc.CallOption) (*RevokeTokenResponse, error)
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
 }
 
@@ -48,6 +50,15 @@ func (c *tokensServiceClient) CreateToken(ctx context.Context, in *CreateTokenRe
 	return out, nil
 }
 
+func (c *tokensServiceClient) RevokeToken(ctx context.Context, in *RevokeTokenRequest, opts ...grpc.CallOption) (*RevokeTokenResponse, error) {
+	out := new(RevokeTokenResponse)
+	err := c.cc.Invoke(ctx, TokensService_RevokeToken_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tokensServiceClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error) {
 	out := new(RefreshTokenResponse)
 	err := c.cc.Invoke(ctx, TokensService_RefreshToken_FullMethodName, in, out, opts...)
@@ -62,6 +73,7 @@ func (c *tokensServiceClient) RefreshToken(ctx context.Context, in *RefreshToken
 // for forward compatibility
 type TokensServiceServer interface {
 	CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error)
+	RevokeToken(context.Context, *RevokeTokenRequest) (*RevokeTokenResponse, error)
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
 	mustEmbedUnimplementedTokensServiceServer()
 }
@@ -72,6 +84,9 @@ type UnimplementedTokensServiceServer struct {
 
 func (UnimplementedTokensServiceServer) CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
+}
+func (UnimplementedTokensServiceServer) RevokeToken(context.Context, *RevokeTokenRequest) (*RevokeTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RevokeToken not implemented")
 }
 func (UnimplementedTokensServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
@@ -107,6 +122,24 @@ func _TokensService_CreateToken_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TokensService_RevokeToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RevokeTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TokensServiceServer).RevokeToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TokensService_RevokeToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TokensServiceServer).RevokeToken(ctx, req.(*RevokeTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TokensService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RefreshTokenRequest)
 	if err := dec(in); err != nil {
@@ -135,6 +168,10 @@ var TokensService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateToken",
 			Handler:    _TokensService_CreateToken_Handler,
+		},
+		{
+			MethodName: "RevokeToken",
+			Handler:    _TokensService_RevokeToken_Handler,
 		},
 		{
 			MethodName: "RefreshToken",
