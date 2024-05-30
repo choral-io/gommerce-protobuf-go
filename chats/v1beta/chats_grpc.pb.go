@@ -23,6 +23,7 @@ const (
 	ChatsService_DescribeSession_FullMethodName = "/gommerce.chats.v1beta.ChatsService/DescribeSession"
 	ChatsService_ReadSession_FullMethodName     = "/gommerce.chats.v1beta.ChatsService/ReadSession"
 	ChatsService_SendRecord_FullMethodName      = "/gommerce.chats.v1beta.ChatsService/SendRecord"
+	ChatsService_ListRecords_FullMethodName     = "/gommerce.chats.v1beta.ChatsService/ListRecords"
 	ChatsService_WatchRecords_FullMethodName    = "/gommerce.chats.v1beta.ChatsService/WatchRecords"
 )
 
@@ -34,6 +35,7 @@ type ChatsServiceClient interface {
 	DescribeSession(ctx context.Context, in *DescribeSessionRequest, opts ...grpc.CallOption) (*DescribeSessionResponse, error)
 	ReadSession(ctx context.Context, in *ReadSessionRequest, opts ...grpc.CallOption) (*ReadSessionResponse, error)
 	SendRecord(ctx context.Context, in *SendRecordRequest, opts ...grpc.CallOption) (*SendRecordResponse, error)
+	ListRecords(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRecordsResponse, error)
 	WatchRecords(ctx context.Context, in *WatchRecordsRequest, opts ...grpc.CallOption) (ChatsService_WatchRecordsClient, error)
 }
 
@@ -81,6 +83,15 @@ func (c *chatsServiceClient) SendRecord(ctx context.Context, in *SendRecordReque
 	return out, nil
 }
 
+func (c *chatsServiceClient) ListRecords(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRecordsResponse, error) {
+	out := new(ListRecordsResponse)
+	err := c.cc.Invoke(ctx, ChatsService_ListRecords_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *chatsServiceClient) WatchRecords(ctx context.Context, in *WatchRecordsRequest, opts ...grpc.CallOption) (ChatsService_WatchRecordsClient, error) {
 	stream, err := c.cc.NewStream(ctx, &ChatsService_ServiceDesc.Streams[0], ChatsService_WatchRecords_FullMethodName, opts...)
 	if err != nil {
@@ -121,6 +132,7 @@ type ChatsServiceServer interface {
 	DescribeSession(context.Context, *DescribeSessionRequest) (*DescribeSessionResponse, error)
 	ReadSession(context.Context, *ReadSessionRequest) (*ReadSessionResponse, error)
 	SendRecord(context.Context, *SendRecordRequest) (*SendRecordResponse, error)
+	ListRecords(context.Context, *ListRecordsRequest) (*ListRecordsResponse, error)
 	WatchRecords(*WatchRecordsRequest, ChatsService_WatchRecordsServer) error
 	mustEmbedUnimplementedChatsServiceServer()
 }
@@ -140,6 +152,9 @@ func (UnimplementedChatsServiceServer) ReadSession(context.Context, *ReadSession
 }
 func (UnimplementedChatsServiceServer) SendRecord(context.Context, *SendRecordRequest) (*SendRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendRecord not implemented")
+}
+func (UnimplementedChatsServiceServer) ListRecords(context.Context, *ListRecordsRequest) (*ListRecordsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRecords not implemented")
 }
 func (UnimplementedChatsServiceServer) WatchRecords(*WatchRecordsRequest, ChatsService_WatchRecordsServer) error {
 	return status.Errorf(codes.Unimplemented, "method WatchRecords not implemented")
@@ -229,6 +244,24 @@ func _ChatsService_SendRecord_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ChatsService_ListRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatsServiceServer).ListRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChatsService_ListRecords_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatsServiceServer).ListRecords(ctx, req.(*ListRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ChatsService_WatchRecords_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(WatchRecordsRequest)
 	if err := stream.RecvMsg(m); err != nil {
@@ -272,6 +305,10 @@ var ChatsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SendRecord",
 			Handler:    _ChatsService_SendRecord_Handler,
+		},
+		{
+			MethodName: "ListRecords",
+			Handler:    _ChatsService_ListRecords_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
