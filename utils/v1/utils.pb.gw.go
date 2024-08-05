@@ -316,6 +316,7 @@ func request_DateTimeService_WatchLocalNow_0(ctx context.Context, marshaler runt
 // UnaryRPC     :call SequenceServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterSequenceServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterSequenceServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server SequenceServiceServer) error {
 
 	mux.Handle("POST", pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -350,6 +351,7 @@ func RegisterSequenceServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 // UnaryRPC     :call SnowflakeServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterSnowflakeServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server SnowflakeServiceServer) error {
 
 	mux.Handle("POST", pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -409,6 +411,7 @@ func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 // UnaryRPC     :call PasswordServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterPasswordServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server PasswordServiceServer) error {
 
 	mux.Handle("POST", pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -493,6 +496,7 @@ func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 // UnaryRPC     :call DateTimeServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterDateTimeServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DateTimeServiceServer) error {
 
 	mux.Handle("POST", pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -640,7 +644,7 @@ func RegisterSequenceServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "SequenceServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "SequenceServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "SequenceServiceClient" to call the correct interceptors.
+// "SequenceServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterSequenceServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SequenceServiceClient) error {
 
 	mux.Handle("POST", pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -711,7 +715,7 @@ func RegisterSnowflakeServiceHandler(ctx context.Context, mux *runtime.ServeMux,
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "SnowflakeServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "SnowflakeServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "SnowflakeServiceClient" to call the correct interceptors.
+// "SnowflakeServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterSnowflakeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SnowflakeServiceClient) error {
 
 	mux.Handle("POST", pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -808,7 +812,7 @@ func RegisterPasswordServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "PasswordServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "PasswordServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "PasswordServiceClient" to call the correct interceptors.
+// "PasswordServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterPasswordServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client PasswordServiceClient) error {
 
 	mux.Handle("POST", pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -931,7 +935,7 @@ func RegisterDateTimeServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "DateTimeServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "DateTimeServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "DateTimeServiceClient" to call the correct interceptors.
+// "DateTimeServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DateTimeServiceClient) error {
 
 	mux.Handle("POST", pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {

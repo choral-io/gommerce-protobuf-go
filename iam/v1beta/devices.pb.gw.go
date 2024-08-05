@@ -61,6 +61,7 @@ func local_request_DevicesService_PatchDevice_0(ctx context.Context, marshaler r
 // UnaryRPC     :call DevicesServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterDevicesServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterDevicesServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DevicesServiceServer) error {
 
 	mux.Handle("POST", pattern_DevicesService_PatchDevice_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -126,7 +127,7 @@ func RegisterDevicesServiceHandler(ctx context.Context, mux *runtime.ServeMux, c
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "DevicesServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "DevicesServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "DevicesServiceClient" to call the correct interceptors.
+// "DevicesServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterDevicesServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DevicesServiceClient) error {
 
 	mux.Handle("POST", pattern_DevicesService_PatchDevice_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {

@@ -87,6 +87,7 @@ func local_request_InvitationService_ListInvitations_0(ctx context.Context, mars
 // UnaryRPC     :call InvitationServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterInvitationServiceHandlerFromEndpoint instead.
+// GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterInvitationServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server InvitationServiceServer) error {
 
 	mux.Handle("POST", pattern_InvitationService_CreateInvitation_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
@@ -177,7 +178,7 @@ func RegisterInvitationServiceHandler(ctx context.Context, mux *runtime.ServeMux
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "InvitationServiceClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "InvitationServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "InvitationServiceClient" to call the correct interceptors.
+// "InvitationServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterInvitationServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client InvitationServiceClient) error {
 
 	mux.Handle("POST", pattern_InvitationService_CreateInvitation_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
