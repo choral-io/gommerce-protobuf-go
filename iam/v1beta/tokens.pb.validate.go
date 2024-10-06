@@ -407,8 +407,6 @@ func (m *RevokeTokenRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for AccessToken
-
 	if len(errors) > 0 {
 		return RevokeTokenRequestMultiError(errors)
 	}
