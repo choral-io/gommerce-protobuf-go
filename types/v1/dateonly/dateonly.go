@@ -1,22 +1,22 @@
-package date_v1
+package dateonly_v1
 
 import (
 	"time"
 )
 
-func New(t time.Time) *Date {
-	return &Date{
+func New(t time.Time) *DateOnly {
+	return &DateOnly{
 		Year:  int32(t.Year()),
 		Month: int32(t.Month()),
 		Day:   int32(t.Day()),
 	}
 }
 
-func Now() *Date {
+func Now() *DateOnly {
 	return New(time.Now())
 }
 
-func (t *Date) AsTime() time.Time {
+func (t *DateOnly) AsTime() time.Time {
 	y := t.Year
 	m := t.Month
 	d := t.Day
