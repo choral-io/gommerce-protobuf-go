@@ -455,9 +455,27 @@ func (m *ListInvitationsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Page
+	if m.GetPage() < 1 {
+		err := ListInvitationsRequestValidationError{
+			field:  "Page",
+			reason: "value must be greater than or equal to 1",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Size
+	if m.GetSize() < 1 {
+		err := ListInvitationsRequestValidationError{
+			field:  "Size",
+			reason: "value must be greater than or equal to 1",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Sort
 

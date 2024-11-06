@@ -794,10 +794,10 @@ func (m *ListSessionsRequest) validate(all bool) error {
 
 	var errors []error
 
-	if m.GetPage() < 0 {
+	if m.GetPage() < 1 {
 		err := ListSessionsRequestValidationError{
 			field:  "Page",
-			reason: "value must be greater than or equal to 0",
+			reason: "value must be greater than or equal to 1",
 		}
 		if !all {
 			return err
