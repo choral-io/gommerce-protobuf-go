@@ -10,6 +10,7 @@ package chats_v1beta
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net/http"
 
@@ -24,151 +25,144 @@ import (
 )
 
 // Suppress "imported and not used" errors
-var _ codes.Code
-var _ io.Reader
-var _ status.Status
-var _ = runtime.String
-var _ = utilities.NewDoubleArray
-var _ = metadata.Join
+var (
+	_ codes.Code
+	_ io.Reader
+	_ status.Status
+	_ = errors.New
+	_ = runtime.String
+	_ = utilities.NewDoubleArray
+	_ = metadata.Join
+)
 
 func request_ChatsService_ListSessions_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListSessionsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListSessionsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.ListSessions(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_ChatsService_ListSessions_0(ctx context.Context, marshaler runtime.Marshaler, server ChatsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListSessionsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListSessionsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.ListSessions(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_ChatsService_DescribeSession_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DescribeSessionRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq DescribeSessionRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.DescribeSession(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_ChatsService_DescribeSession_0(ctx context.Context, marshaler runtime.Marshaler, server ChatsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DescribeSessionRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq DescribeSessionRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.DescribeSession(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_ChatsService_ReadSession_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ReadSessionRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ReadSessionRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.ReadSession(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_ChatsService_ReadSession_0(ctx context.Context, marshaler runtime.Marshaler, server ChatsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ReadSessionRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ReadSessionRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.ReadSession(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_ChatsService_SendRecord_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SendRecordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq SendRecordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.SendRecord(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_ChatsService_SendRecord_0(ctx context.Context, marshaler runtime.Marshaler, server ChatsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SendRecordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq SendRecordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.SendRecord(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_ChatsService_ListRecords_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListRecordsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListRecordsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.ListRecords(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_ChatsService_ListRecords_0(ctx context.Context, marshaler runtime.Marshaler, server ChatsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListRecordsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListRecordsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.ListRecords(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_ChatsService_WatchRecords_0(ctx context.Context, marshaler runtime.Marshaler, client ChatsServiceClient, req *http.Request, pathParams map[string]string) (ChatsService_WatchRecordsClient, runtime.ServerMetadata, error) {
-	var protoReq WatchRecordsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq WatchRecordsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	stream, err := client.WatchRecords(ctx, &protoReq)
 	if err != nil {
 		return nil, metadata, err
@@ -179,7 +173,6 @@ func request_ChatsService_WatchRecords_0(ctx context.Context, marshaler runtime.
 	}
 	metadata.HeaderMD = header
 	return stream, metadata, nil
-
 }
 
 // RegisterChatsServiceHandlerServer registers the http handlers for service ChatsService to "mux".
@@ -188,16 +181,13 @@ func request_ChatsService_WatchRecords_0(ctx context.Context, marshaler runtime.
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterChatsServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ChatsServiceServer) error {
-
-	mux.Handle("POST", pattern_ChatsService_ListSessions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ListSessions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListSessions", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListSessions"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListSessions", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListSessions"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -209,20 +199,15 @@ func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ListSessions_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_DescribeSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_DescribeSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/DescribeSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/DescribeSession"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/DescribeSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/DescribeSession"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -234,20 +219,15 @@ func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_DescribeSession_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_ReadSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ReadSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ReadSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ReadSession"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ReadSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ReadSession"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -259,20 +239,15 @@ func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ReadSession_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_SendRecord_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_SendRecord_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/SendRecord", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/SendRecord"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/SendRecord", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/SendRecord"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -284,20 +259,15 @@ func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_SendRecord_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_ListRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ListRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListRecords"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListRecords"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -309,12 +279,10 @@ func RegisterChatsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ListRecords_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
-	mux.Handle("POST", pattern_ChatsService_WatchRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_WatchRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -345,7 +313,6 @@ func RegisterChatsServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.S
 			}
 		}()
 	}()
-
 	return RegisterChatsServiceHandler(ctx, mux, conn)
 }
 
@@ -361,14 +328,11 @@ func RegisterChatsServiceHandler(ctx context.Context, mux *runtime.ServeMux, con
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "ChatsServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client ChatsServiceClient) error {
-
-	mux.Handle("POST", pattern_ChatsService_ListSessions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ListSessions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListSessions", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListSessions"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListSessions", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListSessions"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -379,18 +343,13 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ListSessions_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_DescribeSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_DescribeSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/DescribeSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/DescribeSession"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/DescribeSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/DescribeSession"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -401,18 +360,13 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_DescribeSession_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_ReadSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ReadSession_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ReadSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ReadSession"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ReadSession", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ReadSession"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -423,18 +377,13 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ReadSession_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_SendRecord_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_SendRecord_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/SendRecord", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/SendRecord"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/SendRecord", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/SendRecord"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -445,18 +394,13 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_SendRecord_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_ListRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_ListRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListRecords"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/ListRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/ListRecords"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -467,18 +411,13 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_ListRecords_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_ChatsService_WatchRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_ChatsService_WatchRecords_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/WatchRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/WatchRecords"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.chats.v1beta.ChatsService/WatchRecords", runtime.WithHTTPPathPattern("/gommerce.chats.v1beta.ChatsService/WatchRecords"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -489,38 +428,25 @@ func RegisterChatsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_ChatsService_WatchRecords_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
 var (
-	pattern_ChatsService_ListSessions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ListSessions"}, ""))
-
+	pattern_ChatsService_ListSessions_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ListSessions"}, ""))
 	pattern_ChatsService_DescribeSession_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "DescribeSession"}, ""))
-
-	pattern_ChatsService_ReadSession_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ReadSession"}, ""))
-
-	pattern_ChatsService_SendRecord_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "SendRecord"}, ""))
-
-	pattern_ChatsService_ListRecords_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ListRecords"}, ""))
-
-	pattern_ChatsService_WatchRecords_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "WatchRecords"}, ""))
+	pattern_ChatsService_ReadSession_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ReadSession"}, ""))
+	pattern_ChatsService_SendRecord_0      = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "SendRecord"}, ""))
+	pattern_ChatsService_ListRecords_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "ListRecords"}, ""))
+	pattern_ChatsService_WatchRecords_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.chats.v1beta.ChatsService", "WatchRecords"}, ""))
 )
 
 var (
-	forward_ChatsService_ListSessions_0 = runtime.ForwardResponseMessage
-
+	forward_ChatsService_ListSessions_0    = runtime.ForwardResponseMessage
 	forward_ChatsService_DescribeSession_0 = runtime.ForwardResponseMessage
-
-	forward_ChatsService_ReadSession_0 = runtime.ForwardResponseMessage
-
-	forward_ChatsService_SendRecord_0 = runtime.ForwardResponseMessage
-
-	forward_ChatsService_ListRecords_0 = runtime.ForwardResponseMessage
-
-	forward_ChatsService_WatchRecords_0 = runtime.ForwardResponseStream
+	forward_ChatsService_ReadSession_0     = runtime.ForwardResponseMessage
+	forward_ChatsService_SendRecord_0      = runtime.ForwardResponseMessage
+	forward_ChatsService_ListRecords_0     = runtime.ForwardResponseMessage
+	forward_ChatsService_WatchRecords_0    = runtime.ForwardResponseStream
 )

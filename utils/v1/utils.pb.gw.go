@@ -10,6 +10,7 @@ package utils_v1
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net/http"
 
@@ -24,281 +25,264 @@ import (
 )
 
 // Suppress "imported and not used" errors
-var _ codes.Code
-var _ io.Reader
-var _ status.Status
-var _ = runtime.String
-var _ = utilities.NewDoubleArray
-var _ = metadata.Join
+var (
+	_ codes.Code
+	_ io.Reader
+	_ status.Status
+	_ = errors.New
+	_ = runtime.String
+	_ = utilities.NewDoubleArray
+	_ = metadata.Join
+)
 
 func request_SequenceService_NextValue_0(ctx context.Context, marshaler runtime.Marshaler, client SequenceServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextValueRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextValueRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.NextValue(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_SequenceService_NextValue_0(ctx context.Context, marshaler runtime.Marshaler, server SequenceServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextValueRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextValueRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.NextValue(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_SnowflakeService_NextHex_0(ctx context.Context, marshaler runtime.Marshaler, client SnowflakeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextHexRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextHexRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.NextHex(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_SnowflakeService_NextHex_0(ctx context.Context, marshaler runtime.Marshaler, server SnowflakeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextHexRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextHexRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.NextHex(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_SnowflakeService_NextInt64_0(ctx context.Context, marshaler runtime.Marshaler, client SnowflakeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextInt64Request
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextInt64Request
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.NextInt64(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_SnowflakeService_NextInt64_0(ctx context.Context, marshaler runtime.Marshaler, server SnowflakeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq NextInt64Request
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq NextInt64Request
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.NextInt64(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_PasswordService_GeneratePassword_0(ctx context.Context, marshaler runtime.Marshaler, client PasswordServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GeneratePasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GeneratePasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GeneratePassword(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_PasswordService_GeneratePassword_0(ctx context.Context, marshaler runtime.Marshaler, server PasswordServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GeneratePasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GeneratePasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GeneratePassword(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_PasswordService_HashPassword_0(ctx context.Context, marshaler runtime.Marshaler, client PasswordServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HashPasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq HashPasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.HashPassword(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_PasswordService_HashPassword_0(ctx context.Context, marshaler runtime.Marshaler, server PasswordServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq HashPasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq HashPasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.HashPassword(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_PasswordService_ValidatePassword_0(ctx context.Context, marshaler runtime.Marshaler, client PasswordServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ValidatePasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ValidatePasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.ValidatePassword(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_PasswordService_ValidatePassword_0(ctx context.Context, marshaler runtime.Marshaler, server PasswordServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ValidatePasswordRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ValidatePasswordRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.ValidatePassword(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_DateTimeService_GetDBNow_0(ctx context.Context, marshaler runtime.Marshaler, client DateTimeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetDBNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetDBNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GetDBNow(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_DateTimeService_GetDBNow_0(ctx context.Context, marshaler runtime.Marshaler, server DateTimeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetDBNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetDBNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GetDBNow(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_DateTimeService_GetRedisNow_0(ctx context.Context, marshaler runtime.Marshaler, client DateTimeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRedisNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetRedisNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GetRedisNow(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_DateTimeService_GetRedisNow_0(ctx context.Context, marshaler runtime.Marshaler, server DateTimeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRedisNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetRedisNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GetRedisNow(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_DateTimeService_GetUTCNow_0(ctx context.Context, marshaler runtime.Marshaler, client DateTimeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetUTCNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetUTCNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GetUTCNow(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_DateTimeService_GetUTCNow_0(ctx context.Context, marshaler runtime.Marshaler, server DateTimeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetUTCNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetUTCNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GetUTCNow(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_DateTimeService_GetLocalNow_0(ctx context.Context, marshaler runtime.Marshaler, client DateTimeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetLocalNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetLocalNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GetLocalNow(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_DateTimeService_GetLocalNow_0(ctx context.Context, marshaler runtime.Marshaler, server DateTimeServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetLocalNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetLocalNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GetLocalNow(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_DateTimeService_WatchLocalNow_0(ctx context.Context, marshaler runtime.Marshaler, client DateTimeServiceClient, req *http.Request, pathParams map[string]string) (DateTimeService_WatchLocalNowClient, runtime.ServerMetadata, error) {
-	var protoReq WatchLocalNowRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq WatchLocalNowRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	stream, err := client.WatchLocalNow(ctx, &protoReq)
 	if err != nil {
 		return nil, metadata, err
@@ -309,7 +293,6 @@ func request_DateTimeService_WatchLocalNow_0(ctx context.Context, marshaler runt
 	}
 	metadata.HeaderMD = header
 	return stream, metadata, nil
-
 }
 
 // RegisterSequenceServiceHandlerServer registers the http handlers for service SequenceService to "mux".
@@ -318,16 +301,13 @@ func request_DateTimeService_WatchLocalNow_0(ctx context.Context, marshaler runt
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterSequenceServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterSequenceServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server SequenceServiceServer) error {
-
-	mux.Handle("POST", pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SequenceService/NextValue", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SequenceService/NextValue"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SequenceService/NextValue", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SequenceService/NextValue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -339,9 +319,7 @@ func RegisterSequenceServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SequenceService_NextValue_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
 	return nil
@@ -353,16 +331,13 @@ func RegisterSequenceServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterSnowflakeServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server SnowflakeServiceServer) error {
-
-	mux.Handle("POST", pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextHex", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextHex"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextHex", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextHex"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -374,20 +349,15 @@ func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SnowflakeService_NextHex_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_SnowflakeService_NextInt64_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SnowflakeService_NextInt64_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextInt64", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextInt64"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextInt64", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextInt64"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -399,9 +369,7 @@ func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SnowflakeService_NextInt64_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
 	return nil
@@ -413,16 +381,13 @@ func RegisterSnowflakeServiceHandlerServer(ctx context.Context, mux *runtime.Ser
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterPasswordServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server PasswordServiceServer) error {
-
-	mux.Handle("POST", pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/GeneratePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/GeneratePassword"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/GeneratePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/GeneratePassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -434,20 +399,15 @@ func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_GeneratePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_PasswordService_HashPassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_HashPassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/HashPassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/HashPassword"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/HashPassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/HashPassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -459,20 +419,15 @@ func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_HashPassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_PasswordService_ValidatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_ValidatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/ValidatePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/ValidatePassword"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/ValidatePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/ValidatePassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -484,9 +439,7 @@ func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_ValidatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
 	return nil
@@ -498,16 +451,13 @@ func RegisterPasswordServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterDateTimeServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DateTimeServiceServer) error {
-
-	mux.Handle("POST", pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetDBNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetDBNow"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetDBNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetDBNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -519,20 +469,15 @@ func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetDBNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetRedisNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetRedisNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetRedisNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetRedisNow"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetRedisNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetRedisNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -544,20 +489,15 @@ func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetRedisNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetUTCNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetUTCNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetUTCNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetUTCNow"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetUTCNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetUTCNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -569,20 +509,15 @@ func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetUTCNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetLocalNow"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetLocalNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -594,12 +529,10 @@ func RegisterDateTimeServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetLocalNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
-	mux.Handle("POST", pattern_DateTimeService_WatchLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_WatchLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -630,7 +563,6 @@ func RegisterSequenceServiceHandlerFromEndpoint(ctx context.Context, mux *runtim
 			}
 		}()
 	}()
-
 	return RegisterSequenceServiceHandler(ctx, mux, conn)
 }
 
@@ -646,14 +578,11 @@ func RegisterSequenceServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "SequenceServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterSequenceServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SequenceServiceClient) error {
-
-	mux.Handle("POST", pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SequenceService_NextValue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SequenceService/NextValue", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SequenceService/NextValue"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SequenceService/NextValue", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SequenceService/NextValue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -664,11 +593,8 @@ func RegisterSequenceServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SequenceService_NextValue_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
@@ -701,7 +627,6 @@ func RegisterSnowflakeServiceHandlerFromEndpoint(ctx context.Context, mux *runti
 			}
 		}()
 	}()
-
 	return RegisterSnowflakeServiceHandler(ctx, mux, conn)
 }
 
@@ -717,14 +642,11 @@ func RegisterSnowflakeServiceHandler(ctx context.Context, mux *runtime.ServeMux,
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "SnowflakeServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterSnowflakeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SnowflakeServiceClient) error {
-
-	mux.Handle("POST", pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SnowflakeService_NextHex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextHex", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextHex"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextHex", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextHex"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -735,18 +657,13 @@ func RegisterSnowflakeServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SnowflakeService_NextHex_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_SnowflakeService_NextInt64_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_SnowflakeService_NextInt64_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextInt64", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextInt64"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.SnowflakeService/NextInt64", runtime.WithHTTPPathPattern("/gommerce.utils.v1.SnowflakeService/NextInt64"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -757,23 +674,18 @@ func RegisterSnowflakeServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_SnowflakeService_NextInt64_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
 var (
-	pattern_SnowflakeService_NextHex_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.SnowflakeService", "NextHex"}, ""))
-
+	pattern_SnowflakeService_NextHex_0   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.SnowflakeService", "NextHex"}, ""))
 	pattern_SnowflakeService_NextInt64_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.SnowflakeService", "NextInt64"}, ""))
 )
 
 var (
-	forward_SnowflakeService_NextHex_0 = runtime.ForwardResponseMessage
-
+	forward_SnowflakeService_NextHex_0   = runtime.ForwardResponseMessage
 	forward_SnowflakeService_NextInt64_0 = runtime.ForwardResponseMessage
 )
 
@@ -798,7 +710,6 @@ func RegisterPasswordServiceHandlerFromEndpoint(ctx context.Context, mux *runtim
 			}
 		}()
 	}()
-
 	return RegisterPasswordServiceHandler(ctx, mux, conn)
 }
 
@@ -814,14 +725,11 @@ func RegisterPasswordServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "PasswordServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterPasswordServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client PasswordServiceClient) error {
-
-	mux.Handle("POST", pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_GeneratePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/GeneratePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/GeneratePassword"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/GeneratePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/GeneratePassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -832,18 +740,13 @@ func RegisterPasswordServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_GeneratePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_PasswordService_HashPassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_HashPassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/HashPassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/HashPassword"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/HashPassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/HashPassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -854,18 +757,13 @@ func RegisterPasswordServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_HashPassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_PasswordService_ValidatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_PasswordService_ValidatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/ValidatePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/ValidatePassword"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.PasswordService/ValidatePassword", runtime.WithHTTPPathPattern("/gommerce.utils.v1.PasswordService/ValidatePassword"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -876,27 +774,20 @@ func RegisterPasswordServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_PasswordService_ValidatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
 var (
 	pattern_PasswordService_GeneratePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.PasswordService", "GeneratePassword"}, ""))
-
-	pattern_PasswordService_HashPassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.PasswordService", "HashPassword"}, ""))
-
+	pattern_PasswordService_HashPassword_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.PasswordService", "HashPassword"}, ""))
 	pattern_PasswordService_ValidatePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.PasswordService", "ValidatePassword"}, ""))
 )
 
 var (
 	forward_PasswordService_GeneratePassword_0 = runtime.ForwardResponseMessage
-
-	forward_PasswordService_HashPassword_0 = runtime.ForwardResponseMessage
-
+	forward_PasswordService_HashPassword_0     = runtime.ForwardResponseMessage
 	forward_PasswordService_ValidatePassword_0 = runtime.ForwardResponseMessage
 )
 
@@ -921,7 +812,6 @@ func RegisterDateTimeServiceHandlerFromEndpoint(ctx context.Context, mux *runtim
 			}
 		}()
 	}()
-
 	return RegisterDateTimeServiceHandler(ctx, mux, conn)
 }
 
@@ -937,14 +827,11 @@ func RegisterDateTimeServiceHandler(ctx context.Context, mux *runtime.ServeMux, 
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "DateTimeServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DateTimeServiceClient) error {
-
-	mux.Handle("POST", pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetDBNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetDBNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetDBNow"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetDBNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetDBNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -955,18 +842,13 @@ func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetDBNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetRedisNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetRedisNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetRedisNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetRedisNow"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetRedisNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetRedisNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -977,18 +859,13 @@ func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetRedisNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetUTCNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetUTCNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetUTCNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetUTCNow"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetUTCNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetUTCNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -999,18 +876,13 @@ func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetUTCNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_GetLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_GetLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetLocalNow"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/GetLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/GetLocalNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1021,18 +893,13 @@ func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_GetLocalNow_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_DateTimeService_WatchLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_DateTimeService_WatchLocalNow_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/WatchLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/WatchLocalNow"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.utils.v1.DateTimeService/WatchLocalNow", runtime.WithHTTPPathPattern("/gommerce.utils.v1.DateTimeService/WatchLocalNow"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1043,34 +910,23 @@ func RegisterDateTimeServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_DateTimeService_WatchLocalNow_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
 var (
-	pattern_DateTimeService_GetDBNow_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetDBNow"}, ""))
-
-	pattern_DateTimeService_GetRedisNow_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetRedisNow"}, ""))
-
-	pattern_DateTimeService_GetUTCNow_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetUTCNow"}, ""))
-
-	pattern_DateTimeService_GetLocalNow_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetLocalNow"}, ""))
-
+	pattern_DateTimeService_GetDBNow_0      = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetDBNow"}, ""))
+	pattern_DateTimeService_GetRedisNow_0   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetRedisNow"}, ""))
+	pattern_DateTimeService_GetUTCNow_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetUTCNow"}, ""))
+	pattern_DateTimeService_GetLocalNow_0   = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "GetLocalNow"}, ""))
 	pattern_DateTimeService_WatchLocalNow_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.utils.v1.DateTimeService", "WatchLocalNow"}, ""))
 )
 
 var (
-	forward_DateTimeService_GetDBNow_0 = runtime.ForwardResponseMessage
-
-	forward_DateTimeService_GetRedisNow_0 = runtime.ForwardResponseMessage
-
-	forward_DateTimeService_GetUTCNow_0 = runtime.ForwardResponseMessage
-
-	forward_DateTimeService_GetLocalNow_0 = runtime.ForwardResponseMessage
-
+	forward_DateTimeService_GetDBNow_0      = runtime.ForwardResponseMessage
+	forward_DateTimeService_GetRedisNow_0   = runtime.ForwardResponseMessage
+	forward_DateTimeService_GetUTCNow_0     = runtime.ForwardResponseMessage
+	forward_DateTimeService_GetLocalNow_0   = runtime.ForwardResponseMessage
 	forward_DateTimeService_WatchLocalNow_0 = runtime.ForwardResponseStream
 )

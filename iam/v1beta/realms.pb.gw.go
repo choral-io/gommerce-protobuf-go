@@ -10,6 +10,7 @@ package iam_v1beta
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net/http"
 
@@ -24,141 +25,134 @@ import (
 )
 
 // Suppress "imported and not used" errors
-var _ codes.Code
-var _ io.Reader
-var _ status.Status
-var _ = runtime.String
-var _ = utilities.NewDoubleArray
-var _ = metadata.Join
+var (
+	_ codes.Code
+	_ io.Reader
+	_ status.Status
+	_ = errors.New
+	_ = runtime.String
+	_ = utilities.NewDoubleArray
+	_ = metadata.Join
+)
 
 func request_RealmsService_CreateRealm_0(ctx context.Context, marshaler runtime.Marshaler, client RealmsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq CreateRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.CreateRealm(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_RealmsService_CreateRealm_0(ctx context.Context, marshaler runtime.Marshaler, server RealmsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq CreateRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.CreateRealm(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_RealmsService_GetRealm_0(ctx context.Context, marshaler runtime.Marshaler, client RealmsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.GetRealm(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_RealmsService_GetRealm_0(ctx context.Context, marshaler runtime.Marshaler, server RealmsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq GetRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.GetRealm(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_RealmsService_ListRealms_0(ctx context.Context, marshaler runtime.Marshaler, client RealmsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListRealmsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListRealmsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.ListRealms(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_RealmsService_ListRealms_0(ctx context.Context, marshaler runtime.Marshaler, server RealmsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListRealmsRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq ListRealmsRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.ListRealms(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_RealmsService_UpdateRealm_0(ctx context.Context, marshaler runtime.Marshaler, client RealmsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq UpdateRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.UpdateRealm(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_RealmsService_UpdateRealm_0(ctx context.Context, marshaler runtime.Marshaler, server RealmsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq UpdateRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.UpdateRealm(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 func request_RealmsService_DeleteRealm_0(ctx context.Context, marshaler runtime.Marshaler, client RealmsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq DeleteRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := client.DeleteRealm(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
-
 }
 
 func local_request_RealmsService_DeleteRealm_0(ctx context.Context, marshaler runtime.Marshaler, server RealmsServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteRealmRequest
-	var metadata runtime.ServerMetadata
-
-	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+	var (
+		protoReq DeleteRealmRequest
+		metadata runtime.ServerMetadata
+	)
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-
 	msg, err := server.DeleteRealm(ctx, &protoReq)
 	return msg, metadata, err
-
 }
 
 // RegisterRealmsServiceHandlerServer registers the http handlers for service RealmsService to "mux".
@@ -167,16 +161,13 @@ func local_request_RealmsService_DeleteRealm_0(ctx context.Context, marshaler ru
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterRealmsServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server RealmsServiceServer) error {
-
-	mux.Handle("POST", pattern_RealmsService_CreateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_CreateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/CreateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/CreateRealm"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/CreateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/CreateRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -188,20 +179,15 @@ func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_CreateRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_GetRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_GetRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/GetRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/GetRealm"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/GetRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/GetRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -213,20 +199,15 @@ func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_GetRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_ListRealms_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_ListRealms_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/ListRealms", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/ListRealms"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/ListRealms", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/ListRealms"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -238,20 +219,15 @@ func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_ListRealms_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_UpdateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_UpdateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/UpdateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/UpdateRealm"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/UpdateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/UpdateRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -263,20 +239,15 @@ func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_UpdateRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_DeleteRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_DeleteRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/DeleteRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/DeleteRealm"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/DeleteRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/DeleteRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -288,9 +259,7 @@ func RegisterRealmsServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_DeleteRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
 
 	return nil
@@ -317,7 +286,6 @@ func RegisterRealmsServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.
 			}
 		}()
 	}()
-
 	return RegisterRealmsServiceHandler(ctx, mux, conn)
 }
 
@@ -333,14 +301,11 @@ func RegisterRealmsServiceHandler(ctx context.Context, mux *runtime.ServeMux, co
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "RealmsServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client RealmsServiceClient) error {
-
-	mux.Handle("POST", pattern_RealmsService_CreateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_CreateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/CreateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/CreateRealm"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/CreateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/CreateRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -351,18 +316,13 @@ func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_CreateRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_GetRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_GetRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/GetRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/GetRealm"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/GetRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/GetRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -373,18 +333,13 @@ func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_GetRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_ListRealms_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_ListRealms_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/ListRealms", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/ListRealms"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/ListRealms", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/ListRealms"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -395,18 +350,13 @@ func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_ListRealms_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_UpdateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_UpdateRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/UpdateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/UpdateRealm"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/UpdateRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/UpdateRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -417,18 +367,13 @@ func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_UpdateRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
-	mux.Handle("POST", pattern_RealmsService_DeleteRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle(http.MethodPost, pattern_RealmsService_DeleteRealm_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/DeleteRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/DeleteRealm"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/gommerce.iam.v1beta.RealmsService/DeleteRealm", runtime.WithHTTPPathPattern("/gommerce.iam.v1beta.RealmsService/DeleteRealm"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -439,34 +384,23 @@ func RegisterRealmsServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-
 		forward_RealmsService_DeleteRealm_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
 	})
-
 	return nil
 }
 
 var (
 	pattern_RealmsService_CreateRealm_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "CreateRealm"}, ""))
-
-	pattern_RealmsService_GetRealm_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "GetRealm"}, ""))
-
-	pattern_RealmsService_ListRealms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "ListRealms"}, ""))
-
+	pattern_RealmsService_GetRealm_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "GetRealm"}, ""))
+	pattern_RealmsService_ListRealms_0  = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "ListRealms"}, ""))
 	pattern_RealmsService_UpdateRealm_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "UpdateRealm"}, ""))
-
 	pattern_RealmsService_DeleteRealm_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"gommerce.iam.v1beta.RealmsService", "DeleteRealm"}, ""))
 )
 
 var (
 	forward_RealmsService_CreateRealm_0 = runtime.ForwardResponseMessage
-
-	forward_RealmsService_GetRealm_0 = runtime.ForwardResponseMessage
-
-	forward_RealmsService_ListRealms_0 = runtime.ForwardResponseMessage
-
+	forward_RealmsService_GetRealm_0    = runtime.ForwardResponseMessage
+	forward_RealmsService_ListRealms_0  = runtime.ForwardResponseMessage
 	forward_RealmsService_UpdateRealm_0 = runtime.ForwardResponseMessage
-
 	forward_RealmsService_DeleteRealm_0 = runtime.ForwardResponseMessage
 )
