@@ -2,7 +2,9 @@ package sqlpb_v1
 
 import (
 	"database/sql"
+	"strings"
 
+	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"google.golang.org/protobuf/types/known/wrapperspb"
 )
@@ -78,4 +80,87 @@ func ToNullTime(v *timestamppb.Timestamp) sql.NullTime {
 		Valid: v != nil && v.IsValid(),
 		Time:  v.AsTime(),
 	}
+}
+
+func FromNullTimestamp(v sql.NullTime) *timestamppb.Timestamp {
+	return FromNullTime(v)
+}
+
+func ToNullTimestamp(v *timestamppb.Timestamp) sql.NullTime {
+	return ToNullTime(v)
+}
+
+type EnumType interface {
+	~int32
+	Type() protoreflect.EnumType
+	String() string
+	Number() protoreflect.EnumNumber
+}
+
+func EnumNamePrefix[E EnumType](e E) string {
+	vname := e.String()
+	tname := string(e.Type().Descriptor().Name())
+	prefix := strings.ToUpper(tname) + "_"
+	if strings.HasPrefix(vname, prefix) {
+		return prefix
+	}
+	return ""
+}
+
+func EnumFromName[E EnumType](n string) E {
+	var zero E = 0
+	prefix := strings.ToUpper(string(zero.Type().Descriptor().Name())) + "_"
+	values := (E(0)).Type().Descriptor().Values()
+	for i := 0; i < values.Len(); i++ {
+		v := values.Get(i)
+		if strings.EqualFold(string(v.Name()), n) || strings.EqualFold(string(v.Name()), prefix+n) {
+			return E(v.Number())
+		}
+	}
+	return zero
+}
+
+func EnumFromValue[E EnumType](v int32) E {
+	return E(v)
+}
+
+func EnumToName[E EnumType](e E) string {
+	vname := e.String()
+	prefix := EnumNamePrefix(e)
+	if strings.HasPrefix(vname, prefix) {
+		return vname[len(prefix):]
+	}
+	return vname
+}
+
+func EnumToValue[E EnumType](e E) int32 {
+	return int32(e.Number())
+}
+
+func EnumFromNullName[E EnumType](v sql.NullString) E {
+	if v.Valid {
+		return EnumFromName[E](v.String)
+	}
+	return 0
+}
+
+func EnumFromNullValue[E EnumType](v sql.NullInt32) E {
+	if v.Valid {
+		return EnumFromValue[E](v.Int32)
+	}
+	return 0
+}
+
+func EnumToNullName[E EnumType](e E) sql.NullString {
+	if e == 0 {
+		return sql.NullString{Valid: false}
+	}
+	return sql.NullString{Valid: true, String: EnumToName(e)}
+}
+
+func EnumToNullValue[E EnumType](e E) sql.NullInt32 {
+	if e == 0 {
+		return sql.NullInt32{Valid: false}
+	}
+	return sql.NullInt32{Valid: true, Int32: EnumToValue(e)}
 }
