@@ -100,16 +100,28 @@ type EnumType interface {
 func EnumNamePrefix[E EnumType](e E) string {
 	vname := e.String()
 	tname := string(e.Type().Descriptor().Name())
-	prefix := strings.ToUpper(tname) + "_"
-	if strings.HasPrefix(vname, prefix) {
-		return prefix
+	prefix := []byte{}
+	// https://github.com/protocolbuffers/protobuf-go/blob/v1.35.2/internal/strs/strings.go#L110
+	for i := 0; i < len(tname); i++ {
+		c := tname[i]
+		if 'A' <= c && c <= 'Z' && len(prefix) > 0 {
+			prefix = append(prefix, '_')
+		}
+		if 'a' <= c && c <= 'z' {
+			c -= 'a' - 'A'
+		}
+		prefix = append(prefix, c)
+	}
+	prefix = append(prefix, '_')
+	if strings.HasPrefix(vname, string(prefix)) {
+		return string(prefix)
 	}
 	return ""
 }
 
 func EnumFromName[E EnumType](n string) E {
 	var zero E = 0
-	prefix := strings.ToUpper(string(zero.Type().Descriptor().Name())) + "_"
+	prefix := EnumNamePrefix(zero)
 	values := (E(0)).Type().Descriptor().Values()
 	for i := 0; i < values.Len(); i++ {
 		v := values.Get(i)
