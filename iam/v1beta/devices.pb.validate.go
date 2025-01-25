@@ -104,7 +104,7 @@ type PatchDeviceRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m PatchDeviceRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -206,7 +206,7 @@ type PatchDeviceResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m PatchDeviceResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

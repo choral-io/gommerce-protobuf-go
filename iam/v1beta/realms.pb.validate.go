@@ -195,7 +195,7 @@ type RealmMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m RealmMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -330,7 +330,7 @@ type CreateRealmRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateRealmRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -461,7 +461,7 @@ type CreateRealmResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateRealmResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -565,7 +565,7 @@ type GetRealmRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetRealmRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -694,7 +694,7 @@ type GetRealmResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetRealmResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -818,7 +818,7 @@ type ListRealmsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m ListRealmsRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -960,7 +960,7 @@ type ListRealmsResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m ListRealmsResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1099,7 +1099,7 @@ type UpdateRealmRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m UpdateRealmRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1201,7 +1201,7 @@ type UpdateRealmResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m UpdateRealmResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1305,7 +1305,7 @@ type DeleteRealmRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DeleteRealmRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -1407,7 +1407,7 @@ type DeleteRealmResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DeleteRealmResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

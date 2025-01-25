@@ -84,7 +84,7 @@ type GetStateRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetStateRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -190,7 +190,7 @@ type GetStateResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m GetStateResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -307,7 +307,7 @@ type SetStateRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m SetStateRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -407,7 +407,7 @@ type SetStateResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m SetStateResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -520,7 +520,7 @@ type DelStateRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DelStateRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -620,7 +620,7 @@ type DelStateResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m DelStateResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}

@@ -132,7 +132,7 @@ type InvitationMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m InvitationMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -265,7 +265,7 @@ type CreateInvitationRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateInvitationRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -367,7 +367,7 @@ type CreateInvitationResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m CreateInvitationResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -493,7 +493,7 @@ type ListInvitationsRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m ListInvitationsRequestMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
@@ -635,7 +635,7 @@ type ListInvitationsResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
 func (m ListInvitationsResponseMultiError) Error() string {
-	var msgs []string
+	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
 	}
