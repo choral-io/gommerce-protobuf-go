@@ -101,7 +101,7 @@ func EnumNamePrefix[E EnumType](e E) string {
 	vname := e.String()
 	tname := string(e.Type().Descriptor().Name())
 	prefix := []byte{}
-	// https://github.com/protocolbuffers/protobuf-go/blob/v1.35.2/internal/strs/strings.go#L110
+	// https://github.com/protocolbuffers/protobuf-go/blob/v1.36.4/internal/strs/strings.go#L110
 	for i := 0; i < len(tname); i++ {
 		c := tname[i]
 		if 'A' <= c && c <= 'Z' && len(prefix) > 0 {
