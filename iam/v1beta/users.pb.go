@@ -7,8 +7,8 @@
 package iam_v1beta
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	gender "github.com/choral-io/gommerce-protobuf-go/types/v1/gender"
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -553,7 +553,7 @@ var File_gommerce_iam_v1beta_users_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_users_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgommerce/iam/v1beta/users.proto\x12\x13gommerce.iam.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17validate/validate.proto\"\xd5\a\n" +
+	"\x1fgommerce/iam/v1beta/users.proto\x12\x13gommerce.iam.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xd5\a\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05realm\x18\x02 \x01(\tR\x05realm\x12\x1a\n" +
@@ -584,19 +584,19 @@ const file_gommerce_iam_v1beta_users_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\x0f\x10\x19J\x04\b\x1c\x10&\"\xc8\x02\n" +
 	"\x0fRegisterRequest\x12\x1f\n" +
-	"\x05realm\x18\x01 \x01(\tB\t\xfaB\x06r\x04\x10\x05\x188R\x05realm\x12%\n" +
-	"\busername\x18\x02 \x01(\tB\t\xfaB\x06r\x04\x10\x05\x188R\busername\x12%\n" +
-	"\bpassword\x18\x03 \x01(\tB\t\xfaB\x06r\x04\x10\x05\x188R\bpassword\x12J\n" +
-	"\fdisplay_name\x18\x04 \x01(\v2\x1c.google.protobuf.StringValueB\t\xfaB\x06r\x04\x10\x02\x18xR\vdisplayName\x12G\n" +
+	"\x05realm\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x05\x188R\x05realm\x12%\n" +
+	"\busername\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x05\x188R\busername\x12%\n" +
+	"\bpassword\x18\x03 \x01(\tB\t\xbaH\x06r\x04\x10\x05\x188R\bpassword\x12J\n" +
+	"\fdisplay_name\x18\x04 \x01(\v2\x1c.google.protobuf.StringValueB\t\xbaH\x06r\x04\x10\x02\x18xR\vdisplayName\x12G\n" +
 	"\n" +
 	"avatar_url\x18\x05 \x01(\v2\x1c.google.protobuf.StringValueB\n" +
-	"\xfaB\ar\x05\x10\x00\x18\x80\x10R\tavatarUrl\x121\n" +
+	"\xbaH\ar\x05\x10\x00\x18\x80\x10R\tavatarUrl\x121\n" +
 	"\x06gender\x18\x06 \x01(\x0e2\x19.gommerce.types.v1.GenderR\x06gender\"A\n" +
 	"\x10RegisterResponse\x12-\n" +
 	"\x04user\x18\x01 \x01(\v2\x19.gommerce.iam.v1beta.UserR\x04user\"`\n" +
 	"\x10ListUsersRequest\x12\x1b\n" +
-	"\x04page\x18\x01 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
-	"\x04size\x18\x02 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
+	"\x04size\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
 	"\x04sort\x18\x03 \x01(\tR\x04sort\"\x82\x01\n" +
 	"\x11ListUsersResponse\x12/\n" +
 	"\x05items\x18\x01 \x03(\v2\x19.gommerce.iam.v1beta.UserR\x05items\x12\x12\n" +

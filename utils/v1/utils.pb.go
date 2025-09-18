@@ -7,8 +7,8 @@
 package utils_v1
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	tsoffset "github.com/choral-io/gommerce-protobuf-go/types/v1/tsoffset"
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -979,11 +979,11 @@ var File_gommerce_utils_v1_utils_proto protoreflect.FileDescriptor
 
 const file_gommerce_utils_v1_utils_proto_rawDesc = "" +
 	"\n" +
-	"\x1dgommerce/utils/v1/utils.proto\x12\x11gommerce.utils.v1\x1a gommerce/types/v1/tsoffset.proto\x1a\x17validate/validate.proto\"y\n" +
+	"\x1dgommerce/utils/v1/utils.proto\x12\x11gommerce.utils.v1\x1a gommerce/types/v1/tsoffset.proto\x1a\x1bbuf/validate/validate.proto\"y\n" +
 	"\x10NextValueRequest\x12\x19\n" +
-	"\x03key\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x03key\x12$\n" +
-	"\tmin_value\x18\x02 \x01(\x03B\a\xfaB\x04\"\x02(\x00R\bminValue\x12$\n" +
-	"\tmax_value\x18\x03 \x01(\x03B\a\xfaB\x04\"\x02(\x00R\bmaxValue\";\n" +
+	"\x03key\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x03key\x12$\n" +
+	"\tmin_value\x18\x02 \x01(\x03B\a\xbaH\x04\"\x02(\x00R\bminValue\x12$\n" +
+	"\tmax_value\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02(\x00R\bmaxValue\";\n" +
 	"\x11NextValueResponse\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\x03R\x05value\"\x10\n" +
@@ -999,12 +999,12 @@ const file_gommerce_utils_v1_utils_proto_rawDesc = "" +
 	"\x18GeneratePasswordResponse\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\"4\n" +
 	"\x13HashPasswordRequest\x12\x1d\n" +
-	"\x05value\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x05value\",\n" +
+	"\x05value\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x05value\",\n" +
 	"\x14HashPasswordResponse\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\"\x81\x01\n" +
 	"\x17ValidatePasswordRequest\x120\n" +
-	"\x0fhashed_password\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x0ehashedPassword\x124\n" +
-	"\x11provided_password\x18\x02 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x10providedPassword\"0\n" +
+	"\x0fhashed_password\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x0ehashedPassword\x124\n" +
+	"\x11provided_password\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x10providedPassword\"0\n" +
 	"\x18ValidatePasswordResponse\x12\x14\n" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\"\x11\n" +
 	"\x0fGetDBNowRequest\"L\n" +

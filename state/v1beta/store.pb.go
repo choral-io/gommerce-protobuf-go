@@ -7,7 +7,7 @@
 package state_v1beta
 
 import (
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -330,9 +330,9 @@ var File_gommerce_state_v1beta_store_proto protoreflect.FileDescriptor
 
 const file_gommerce_state_v1beta_store_proto_rawDesc = "" +
 	"\n" +
-	"!gommerce/state/v1beta/store.proto\x12\x15gommerce.state.v1beta\x1a\x17validate/validate.proto\"\xbb\x01\n" +
+	"!gommerce/state/v1beta/store.proto\x12\x15gommerce.state.v1beta\x1a\x1bbuf/validate/validate.proto\"\xbb\x01\n" +
 	"\x0fGetStateRequest\x12\x19\n" +
-	"\x03key\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x03key\x12P\n" +
+	"\x03key\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x03key\x12P\n" +
 	"\bmetadata\x18\x02 \x03(\v24.gommerce.state.v1beta.GetStateRequest.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -345,7 +345,7 @@ const file_gommerce_state_v1beta_store_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\x02\x10\x03\"\xfe\x01\n" +
 	"\x0fSetStateRequest\x12\x19\n" +
-	"\x03key\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x03key\x12\x12\n" +
+	"\x03key\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x03key\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\x12P\n" +
 	"\bmetadata\x18\x04 \x03(\v24.gommerce.state.v1beta.SetStateRequest.MetadataEntryR\bmetadata\x12!\n" +
 	"\fcontent_type\x18\x06 \x01(\tR\vcontentType\x1a;\n" +
@@ -354,7 +354,7 @@ const file_gommerce_state_v1beta_store_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\x03\x10\x04J\x04\b\x05\x10\x06\"\x12\n" +
 	"\x10SetStateResponse\"\xc7\x01\n" +
 	"\x0fDelStateRequest\x12\x19\n" +
-	"\x03key\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x03key\x12P\n" +
+	"\x03key\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x03key\x12P\n" +
 	"\bmetadata\x18\x03 \x03(\v24.gommerce.state.v1beta.DelStateRequest.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +

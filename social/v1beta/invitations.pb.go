@@ -7,7 +7,7 @@
 package social_v1beta
 
 import (
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -320,7 +320,7 @@ var File_gommerce_social_v1beta_invitations_proto protoreflect.FileDescriptor
 
 const file_gommerce_social_v1beta_invitations_proto_rawDesc = "" +
 	"\n" +
-	"(gommerce/social/v1beta/invitations.proto\x12\x16gommerce.social.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17validate/validate.proto\"\xc2\x01\n" +
+	"(gommerce/social/v1beta/invitations.proto\x12\x16gommerce.social.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xc2\x01\n" +
 	"\n" +
 	"Invitation\x12\x1d\n" +
 	"\n" +
@@ -340,8 +340,8 @@ const file_gommerce_social_v1beta_invitations_proto_rawDesc = "" +
 	"channel_id\x18\x03 \x01(\v2\x1c.google.protobuf.StringValueR\tchannelId\"\x1a\n" +
 	"\x18CreateInvitationResponse\"f\n" +
 	"\x16ListInvitationsRequest\x12\x1b\n" +
-	"\x04page\x18\x01 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
-	"\x04size\x18\x02 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
+	"\x04size\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
 	"\x04sort\x18\x03 \x01(\tR\x04sort\"\x91\x01\n" +
 	"\x17ListInvitationsResponse\x128\n" +
 	"\x05items\x18\x01 \x03(\v2\".gommerce.social.v1beta.InvitationR\x05items\x12\x12\n" +

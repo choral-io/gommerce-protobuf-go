@@ -7,8 +7,8 @@
 package chats_v1beta
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	gender "github.com/choral-io/gommerce-protobuf-go/types/v1/gender"
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -997,7 +997,7 @@ var File_gommerce_chats_v1beta_chats_proto protoreflect.FileDescriptor
 
 const file_gommerce_chats_v1beta_chats_proto_rawDesc = "" +
 	"\n" +
-	"!gommerce/chats/v1beta/chats.proto\x12\x15gommerce.chats.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17validate/validate.proto\"\xe9\x02\n" +
+	"!gommerce/chats/v1beta/chats.proto\x12\x15gommerce.chats.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xe9\x02\n" +
 	"\x06Member\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
 	"\n" +
@@ -1050,8 +1050,8 @@ const file_gommerce_chats_v1beta_chats_proto_rawDesc = "" +
 	"\vread_cursor\x18\v \x01(\v2\x1c.google.protobuf.StringValueR\n" +
 	"readCursor\"c\n" +
 	"\x13ListSessionsRequest\x12\x1b\n" +
-	"\x04page\x18\x01 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
-	"\x04size\x18\x02 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
+	"\x04size\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
 	"\x04sort\x18\x03 \x01(\tR\x04sort\"\x8a\x01\n" +
 	"\x14ListSessionsResponse\x124\n" +
 	"\x05items\x18\x01 \x03(\v2\x1e.gommerce.chats.v1beta.SessionR\x05items\x12\x12\n" +

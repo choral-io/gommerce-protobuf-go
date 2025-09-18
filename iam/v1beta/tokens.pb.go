@@ -7,7 +7,7 @@
 package iam_v1beta
 
 import (
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
@@ -387,11 +387,11 @@ var File_gommerce_iam_v1beta_tokens_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_tokens_proto_rawDesc = "" +
 	"\n" +
-	" gommerce/iam/v1beta/tokens.proto\x12\x13gommerce.iam.v1beta\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17validate/validate.proto\"\xd7\x02\n" +
+	" gommerce/iam/v1beta/tokens.proto\x12\x13gommerce.iam.v1beta\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xd7\x02\n" +
 	"\x12CreateTokenRequest\x12\x14\n" +
 	"\x05scope\x18\x01 \x03(\tR\x05scope\x12\x1d\n" +
-	"\x05realm\x18\x02 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x05realm\x12#\n" +
-	"\bprovider\x18\x03 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\bprovider\x128\n" +
+	"\x05realm\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x05realm\x12#\n" +
+	"\bprovider\x18\x03 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\bprovider\x128\n" +
 	"\busername\x18\x04 \x01(\v2\x1c.google.protobuf.StringValueR\busername\x128\n" +
 	"\bpassword\x18\x05 \x01(\v2\x1c.google.protobuf.StringValueR\bpassword\x127\n" +
 	"\bid_token\x18\x06 \x01(\v2\x1c.google.protobuf.StringValueR\aidToken\x12:\n" +

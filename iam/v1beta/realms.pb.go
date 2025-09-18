@@ -7,7 +7,7 @@
 package iam_v1beta
 
 import (
-	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -656,7 +656,7 @@ var File_gommerce_iam_v1beta_realms_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_realms_proto_rawDesc = "" +
 	"\n" +
-	" gommerce/iam/v1beta/realms.proto\x12\x13gommerce.iam.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17validate/validate.proto\"\xec\x02\n" +
+	" gommerce/iam/v1beta/realms.proto\x12\x13gommerce.iam.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xec\x02\n" +
 	"\x05Realm\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
 	"\bdisabled\x18\x02 \x01(\bR\bdisabled\x12\x1c\n" +
@@ -682,8 +682,8 @@ const file_gommerce_iam_v1beta_realms_proto_rawDesc = "" +
 	"\x10GetRealmResponse\x120\n" +
 	"\x05value\x18\x01 \x01(\v2\x1a.gommerce.iam.v1beta.RealmR\x05value\"a\n" +
 	"\x11ListRealmsRequest\x12\x1b\n" +
-	"\x04page\x18\x01 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
-	"\x04size\x18\x02 \x01(\x05B\a\xfaB\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04page\x12\x1b\n" +
+	"\x04size\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02(\x01R\x04size\x12\x12\n" +
 	"\x04sort\x18\x03 \x01(\tR\x04sort\"\x84\x01\n" +
 	"\x12ListRealmsResponse\x120\n" +
 	"\x05items\x18\x01 \x03(\v2\x1a.gommerce.iam.v1beta.RealmR\x05items\x12\x12\n" +

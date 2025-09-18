@@ -3,7 +3,7 @@ module github.com/choral-io/gommerce-protobuf-go
 go 1.25.0
 
 require (
-	github.com/envoyproxy/protoc-gen-validate v1.2.1
+	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.9-20250912141014-52f32327d4b0.1
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.2
 	google.golang.org/grpc v1.75.1
 	google.golang.org/protobuf v1.36.9
