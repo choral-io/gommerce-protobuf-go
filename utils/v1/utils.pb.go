@@ -979,7 +979,7 @@ var File_gommerce_utils_v1_utils_proto protoreflect.FileDescriptor
 
 const file_gommerce_utils_v1_utils_proto_rawDesc = "" +
 	"\n" +
-	"\x1dgommerce/utils/v1/utils.proto\x12\x11gommerce.utils.v1\x1a gommerce/types/v1/tsoffset.proto\x1a\x1bbuf/validate/validate.proto\"y\n" +
+	"\x1dgommerce/utils/v1/utils.proto\x12\x11gommerce.utils.v1\x1a\x1bbuf/validate/validate.proto\x1a gommerce/types/v1/tsoffset.proto\"y\n" +
 	"\x10NextValueRequest\x12\x19\n" +
 	"\x03key\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x03key\x12$\n" +
 	"\tmin_value\x18\x02 \x01(\x03B\a\xbaH\x04\"\x02(\x00R\bminValue\x12$\n" +

@@ -656,7 +656,7 @@ var File_gommerce_iam_v1beta_realms_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_realms_proto_rawDesc = "" +
 	"\n" +
-	" gommerce/iam/v1beta/realms.proto\x12\x13gommerce.iam.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xec\x02\n" +
+	" gommerce/iam/v1beta/realms.proto\x12\x13gommerce.iam.v1beta\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xec\x02\n" +
 	"\x05Realm\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
 	"\bdisabled\x18\x02 \x01(\bR\bdisabled\x12\x1c\n" +

@@ -320,7 +320,7 @@ var File_gommerce_social_v1beta_invitations_proto protoreflect.FileDescriptor
 
 const file_gommerce_social_v1beta_invitations_proto_rawDesc = "" +
 	"\n" +
-	"(gommerce/social/v1beta/invitations.proto\x12\x16gommerce.social.v1beta\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xc2\x01\n" +
+	"(gommerce/social/v1beta/invitations.proto\x12\x16gommerce.social.v1beta\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xc2\x01\n" +
 	"\n" +
 	"Invitation\x12\x1d\n" +
 	"\n" +

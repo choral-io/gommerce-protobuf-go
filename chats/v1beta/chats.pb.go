@@ -997,7 +997,7 @@ var File_gommerce_chats_v1beta_chats_proto protoreflect.FileDescriptor
 
 const file_gommerce_chats_v1beta_chats_proto_rawDesc = "" +
 	"\n" +
-	"!gommerce/chats/v1beta/chats.proto\x12\x15gommerce.chats.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xe9\x02\n" +
+	"!gommerce/chats/v1beta/chats.proto\x12\x15gommerce.chats.v1beta\x1a\x1bbuf/validate/validate.proto\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xe9\x02\n" +
 	"\x06Member\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1d\n" +
 	"\n" +

@@ -553,7 +553,7 @@ var File_gommerce_iam_v1beta_users_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_users_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgommerce/iam/v1beta/users.proto\x12\x13gommerce.iam.v1beta\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xd5\a\n" +
+	"\x1fgommerce/iam/v1beta/users.proto\x12\x13gommerce.iam.v1beta\x1a\x1bbuf/validate/validate.proto\x1a\x1egommerce/types/v1/gender.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xd5\a\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05realm\x18\x02 \x01(\tR\x05realm\x12\x1a\n" +

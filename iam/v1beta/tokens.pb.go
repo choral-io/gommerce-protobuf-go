@@ -387,7 +387,7 @@ var File_gommerce_iam_v1beta_tokens_proto protoreflect.FileDescriptor
 
 const file_gommerce_iam_v1beta_tokens_proto_rawDesc = "" +
 	"\n" +
-	" gommerce/iam/v1beta/tokens.proto\x12\x13gommerce.iam.v1beta\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bbuf/validate/validate.proto\"\xd7\x02\n" +
+	" gommerce/iam/v1beta/tokens.proto\x12\x13gommerce.iam.v1beta\x1a\x1bbuf/validate/validate.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xd7\x02\n" +
 	"\x12CreateTokenRequest\x12\x14\n" +
 	"\x05scope\x18\x01 \x03(\tR\x05scope\x12\x1d\n" +
 	"\x05realm\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x05realm\x12#\n" +
